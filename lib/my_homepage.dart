@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
-
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
- 
   final String title;
 
   @override
@@ -13,20 +10,41 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
- 
-
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink,
-        title: Text('Somtin App',
-        textAlign: TextAlign.center,),
-      ),
-      body: Container(
-
-
-     ), );
+          centerTitle: true,
+          backgroundColor: Colors.pink,
+          title: Text('Somtin App')),
+      body: ListView.builder(
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int position) {
+            return _balanceView();
+          }),
+    );
   }
+}
+
+Widget _balanceView() {
+  return Row(
+    children: [
+      Expanded(
+          child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Total gift Voucher'),
+            Text('GHS 10.00'),
+            Text('BUY GIFT VOUCHER')
+          ],
+        ),
+      )),
+      Icon(
+        Icons.picture_in_picture_alt,
+        size: 80,
+      )
+    ],
+  );
 }
