@@ -18,8 +18,15 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.pink,
           title: Text('Somtin App')),
       body: ListView.builder(
-          itemCount: 5,
+          itemCount: 4,
           itemBuilder: (BuildContext context, int position) {
+            Widget content = Container();
+            if (position == 0){
+              content =_balanceView();
+            }
+            else {
+              
+            }
             return _balanceView();
           }),
     );
@@ -36,8 +43,20 @@ Widget _balanceView() {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Total gift Voucher'),
-            Text('GHS 10.00'),
-            Text('BUY GIFT VOUCHER')
+            Text(
+              'GHS 10.00',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'BUY GIFT VOUCHER',
+              style: TextStyle(color: Colors.red),
+            )
           ],
         ),
       )),
